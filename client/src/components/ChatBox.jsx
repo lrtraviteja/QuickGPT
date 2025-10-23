@@ -30,7 +30,7 @@ const ChatBox = () => {
           </div>
         )}
 
-        {messages.map((message,index) => <Message message={message} />)}
+        {messages.map((message,index) => <Message key={index} message={message} />)}
       </div>
 
       {/* Prompt Input Box */}
