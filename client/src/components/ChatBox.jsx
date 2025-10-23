@@ -5,13 +5,21 @@ import Message from './Message';
 
 const ChatBox = () => {
 
-  const {selectedChat, theme} = useAppContext()
+  const { selectedChat, theme } = useAppContext()
 
   const [messages, setMessages] = useState([])
   const [loading, setLoading] = useState(false)
 
-  useEffect(()=> {
-    if(selectedChat) setMessages(selectedChat.messages)
+  const [promt, setPrompt] = useState('')
+  const [mode, setMode] = useState('text')
+  const [isPublished, setIsPublished] = useState(false)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
+
+  useEffect(() => {
+    if (selectedChat) setMessages(selectedChat.messages)
   }, [selectedChat])
 
 
@@ -24,19 +32,16 @@ const ChatBox = () => {
         {messages.length === 0 && (
           <div className='h-full flex flex-col items-center
           justify-center gap-2 text-primary'>
-            <img src={theme === 'dark' ? assets.logo_full : assets.logo_full_dark} className='w-full max-w-56 sm:max-w-68'/>
+            <img src={theme === 'dark' ? assets.logo_full : assets.logo_full_dark} className='w-full max-w-56 sm:max-w-68' />
             <p className='mt-5 text-4xl sm:text-6xl
             text-center text-gray-400 dark:text-white' >Ask me anything.</p>
           </div>
         )}
 
-        {messages.map((message,index) => <Message key={index} message={message} />)}
+        {messages.map((message, index) => <Message key={index} message={message} />)}
       </div>
 
-      {/* Prompt Input Box */}
-      <form action="">
-        
-      </form>
+      
     </div>
   )
 }
