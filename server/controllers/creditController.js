@@ -1,5 +1,5 @@
+import stripe from "../configs/stripe.js"
 import Transaction from "../models/Transaction.js"
-import Stripe from "stripe"
 
 const plans = [
     {
@@ -33,8 +33,6 @@ export const getPlans = async (req, res) => {
         res.json({success: false, message: error.message})
     }
 }
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
 // API to purchase plan
 export const purchasePlan = async (req, res) => {
