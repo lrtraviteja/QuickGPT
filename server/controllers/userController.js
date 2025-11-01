@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
+import Chat from "../models/Chat.js";
 
 // Generate JWT Token
 const generateToken = (id) => {
