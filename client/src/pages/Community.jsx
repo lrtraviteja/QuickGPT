@@ -25,7 +25,7 @@ const Community = () => {
 
   useEffect(() => {
     fetchImages()
-  })
+  }, [])
 
   if (loading) return <Loading />
 
