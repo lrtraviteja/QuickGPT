@@ -39,7 +39,7 @@ const Credits = () => {
 
   useEffect(() => {
     fetchPlans()
-  })
+  }, [])
 
   if (loading) return <Loading />
 
